@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Shanzay Imran — BS Artificial Intelligence student portfolio focused on Python, machine learning and practical software projects.">
+<title>Shanzay Imran | AI & ML Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
+:root{
+  --bg:#070811; --panel:#0e1020; --panel2:#121528; --text:#f5f7ff;
+  --muted:#a9aec4; --blue:#61b7ff; --purple:#a878ff; --line:rgba(255,255,255,.1);
+  --glow:rgba(97,183,255,.18); --radius:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,Arial,sans-serif;color:var(--text);background:
+  radial-gradient(circle at 80% 10%,rgba(126,77,255,.16),transparent 28rem),
+  radial-gradient(circle at 10% 35%,rgba(44,143,255,.10),transparent 26rem),var(--bg);
+  line-height:1.65;overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;opacity:.22;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:50px 50px;mask-image:linear-gradient(to bottom,black,transparent 85%);
+}
+a{color:inherit;text-decoration:none}.container{width:min(1120px,92%);margin:auto}
+nav{
+  position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:100;
+  width:min(1080px,92%);padding:13px 18px;border:1px solid var(--line);border-radius:18px;
+  background:rgba(8,9,18,.78);backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:space-between;
+}
+.logo{font-weight:800;letter-spacing:-.04em}.logo span{color:var(--blue)}
+.navlinks{display:flex;gap:26px;font-size:14px;color:#c8ccdc}.navlinks a:hover{color:white}
+.menu{display:none;background:none;border:0;color:white;font-size:25px}
+.hero{min-height:100vh;display:grid;place-items:center;padding:140px 0 90px;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+.eyebrow{color:var(--blue);font-size:13px;text-transform:uppercase;letter-spacing:.18em;font-weight:700;margin-bottom:18px}
+h1{font-size:clamp(3rem,7vw,6.4rem);line-height:.98;letter-spacing:-.075em;max-width:800px}
+.gradient{background:linear-gradient(100deg,#fff 15%,#8ecbff 48%,#b18aff 82%);-webkit-background-clip:text;color:transparent}
+.hero p{font-size:18px;color:var(--muted);max-width:680px;margin:26px 0 30px}
+.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{
+  border:1px solid var(--line);background:rgba(255,255,255,.05);padding:12px 18px;border-radius:13px;
+  font-weight:700;font-size:14px;cursor:pointer;color:white;transition:.25s
+}
+.btn:hover{transform:translateY(-2px);border-color:rgba(97,183,255,.5);box-shadow:0 10px 35px var(--glow)}
+.btn.primary{background:linear-gradient(100deg,#3e9eff,#8657e9);border:0}
+.orb-wrap{display:grid;place-items:center;min-height:430px}
+.orb{
+  width:min(340px,75vw);aspect-ratio:1;border-radius:50%;position:relative;
+  background:radial-gradient(circle at 50% 45%,#d8f2ff 0 4%,#64b8ff 10%,#6e53d7 38%,#15162d 63%,transparent 64%);
+  box-shadow:0 0 55px #4b8dff66,0 0 130px #8158d833;animation:float 5s ease-in-out infinite;
+}
+.orb:before,.orb:after{content:"";position:absolute;inset:9%;border:1px solid #75bfff66;border-radius:50%;transform:rotate(25deg) scaleY(.45);animation:spin 9s linear infinite}
+.orb:after{transform:rotate(-35deg) scaleY(.45);animation-direction:reverse}
+.orb-label{position:absolute;inset:0;display:grid;place-items:center;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:#d9eaff}
+@keyframes float{50%{transform:translateY(-14px)}}@keyframes spin{to{transform:rotate(385deg) scaleY(.45)}}
+
+section{padding:105px 0}.section-head{margin-bottom:35px}.kicker{color:var(--purple);font-size:12px;text-transform:uppercase;letter-spacing:.16em;font-weight:800}
+h2{font-family:"Playfair Display",serif;font-size:clamp(2.2rem,5vw,4rem);line-height:1.1;margin-top:7px}
+.lead{color:var(--muted);max-width:760px;margin-top:12px}
+.about-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:25px}
+.card{
+  background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.025));border:1px solid var(--line);
+  border-radius:var(--radius);padding:28px;box-shadow:0 20px 70px rgba(0,0,0,.18)
+}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}.stat{padding:20px;border:1px solid var(--line);border-radius:17px;background:rgba(255,255,255,.025)}
+.stat b{display:block;font-size:25px;color:#fff}.stat span{color:var(--muted);font-size:12px}
+.skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.skill-card h3{font-size:16px;margin-bottom:14px}.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:7px 10px;border-radius:999px;background:#ffffff08;border:1px solid var(--line);font-size:12px;color:#dce1f1}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:25px}.filter.active{background:linear-gradient(100deg,#3e9eff,#8657e9);border-color:transparent}
+.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.project{position:relative;overflow:hidden;transition:.3s}
+.project:hover{transform:translateY(-5px);border-color:#7ebaff55;box-shadow:0 25px 70px rgba(54,103,190,.15)}
+.project-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:22px}.project-icon{font-size:30px}
+.project-num{font-size:11px;color:#777f98;letter-spacing:.12em}.project h3{font-size:22px;margin-bottom:8px}.project p{color:var(--muted);font-size:14px;min-height:70px}
+.project-actions{display:flex;gap:9px;margin-top:20px}.project-actions .btn{font-size:12px;padding:9px 13px}
+.edu{display:grid;grid-template-columns:140px 1fr;gap:30px}.edu-year{color:var(--blue);font-weight:800}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:18px}.contact-card{display:flex;align-items:center;gap:15px}.contact-icon{font-size:22px}.contact-card small{display:block;color:var(--muted);font-size:11px}.contact-card strong{font-size:14px;word-break:break-word}
+footer{padding:30px 0 50px;color:#747b91;font-size:12px;border-top:1px solid var(--line);margin-top:40px}
+
+.modal{position:fixed;inset:0;background:rgba(2,3,8,.78);backdrop-filter:blur(10px);z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+.modal.show{display:flex}.modal-box{width:min(760px,100%);max-height:90vh;overflow:auto;background:#0d0f1d;border:1px solid #ffffff18;border-radius:24px;padding:27px;box-shadow:0 35px 100px #000}
+.close{float:right;background:#ffffff0a;border:1px solid var(--line);color:white;border-radius:10px;width:36px;height:36px;cursor:pointer;font-size:18px}
+.modal h3{font-size:28px;margin-bottom:5px}.modal-sub{color:var(--muted);font-size:13px;margin-bottom:20px}.demo{margin-top:20px;border:1px solid var(--line);border-radius:17px;padding:18px;background:#080a13}
+.demo-title{font-size:11px;color:#7ebfff;text-transform:uppercase;letter-spacing:.13em;margin-bottom:15px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px}.field{display:flex;flex-direction:column;gap:5px}.field label{font-size:11px;color:#9ea6bc}.field input,.field select,.field textarea{
+  background:#111426;color:white;border:1px solid #ffffff12;border-radius:10px;padding:10px;outline:none;font:inherit;font-size:13px
+}.field textarea{min-height:100px;resize:vertical}.full{grid-column:1/-1}.result{margin-top:13px;padding:13px;border-radius:10px;background:#ffffff06;color:#bfc7dc;font-size:13px;white-space:pre-wrap}
+.terminal{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#05060b;border-radius:13px;padding:16px;color:#c6d0e6;min-height:160px;font-size:12px;line-height:1.8;border:1px solid #ffffff0d}
+.term-line{color:#78bcff}.term-ok{color:#9be3b1}
+.schedule{width:100%;border-collapse:collapse;font-size:12px}.schedule th,.schedule td{padding:9px;border-bottom:1px solid #ffffff0d;text-align:left}.schedule th{color:#7ebfff}
+.note{margin-top:12px;color:#727b92;font-size:11px}
+@media(max-width:800px){
+  .navlinks{display:none;position:absolute;top:60px;left:0;right:0;padding:15px;background:#0b0d18;border:1px solid var(--line);border-radius:15px;flex-direction:column;gap:13px}
+  .navlinks.open{display:flex}.menu{display:block}.hero-grid,.about-grid,.contact{grid-template-columns:1fr}.orb-wrap{min-height:300px;order:-1}.skill-grid,.project-grid{grid-template-columns:1fr}
+  h1{font-size:clamp(2.8rem,15vw,5rem)}section{padding:75px 0}.edu{grid-template-columns:1fr;gap:5px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="#home">Shanzay<span>.</span></a>
+  <button class="menu" id="menu" aria-label="Open menu">☰</button>
+  <div class="navlinks" id="navlinks">
+    <a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">BS Artificial Intelligence · UET Peshawar</div>
+      <h1>Building practical <span class="gradient">AI & software</span> projects.</h1>
+      <p>Hi, I'm Shanzay Imran — an AI student focused on Python, machine learning and building useful applications.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">Explore Projects ↓</a>
+        <a class="btn" href="https://github.com/Shanzay-Imran" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn" href="https://www.linkedin.com/in/shanzay-imran-6bab74346/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+    <div class="orb-wrap"><div class="orb"><div class="orb-label">AI · ML · Build</div></div></div>
+  </div>
+</section>
+
+<section id="about">
+<div class="container">
+  <div class="section-head"><div class="kicker">01 · About</div><h2>Learning by building.</h2></div>
+  <div class="about-grid">
+    <div class="card"><p>I'm a 5th-semester BS Artificial Intelligence student at UET Peshawar with a strong foundation in Python and academic experience in machine learning, Java, C++ and databases. I enjoy turning coursework concepts into practical projects and I'm developing my skills toward AI/ML engineering, internships and freelance work.</p></div>
+    <div class="stats">
+      <div class="stat"><b>5th</b><span>Semester</span></div><div class="stat"><b>AI/ML</b><span>Focus</span></div>
+      <div class="stat"><b>Python</b><span>Main language</span></div><div class="stat"><b>3.68</b><span>CGPA</span></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="skills">
+<div class="container">
+  <div class="section-head"><div class="kicker">02 · Skills</div><h2>Tools I work with.</h2><p class="lead">A realistic snapshot of my current academic and project-level toolkit.</p></div>
+  <div class="skill-grid">
+    <div class="card skill-card"><h3>Programming</h3><div class="chips"><span class="chip">Python</span><span class="chip">C++</span><span class="chip">Java</span></div></div>
+    <div class="card skill-card"><h3>AI / Machine Learning</h3><div class="chips"><span class="chip">Machine Learning</span><span class="chip">Scikit-learn</span><span class="chip">Pandas</span><span class="chip">NumPy</span><span class="chip">TensorFlow</span><span class="chip">Feature Engineering</span></div></div>
+    <div class="card skill-card"><h3>Development</h3><div class="chips"><span class="chip">Streamlit</span><span class="chip">MySQL</span><span class="chip">JDBC</span><span class="chip">Java Swing</span><span class="chip">Git / GitHub</span></div></div>
+  </div>
+</div>
+</section>
+
+<section id="projects">
+<div class="container">
+  <div class="section-head"><div class="kicker">03 · Projects</div><h2>Selected builds.</h2><p class="lead">Original projects are linked to their source. Interactive demos below are browser recreations unless explicitly stated otherwise.</p></div>
+  <div class="filters">
+    <button class="btn filter active" data-filter="all">All</button><button class="btn filter" data-filter="ai">AI / ML</button><button class="btn filter" data-filter="python">Python</button><button class="btn filter" data-filter="java">Java</button><button class="btn filter" data-filter="cpp">C++</button>
+  </div>
+  <div class="project-grid" id="projectGrid">
+    <article class="card project" data-tags="ai python">
+      <div class="project-top"><span class="project-icon">🌱</span><span class="project-num">01</span></div>
+      <h3>Smart Crop Recommendation System</h3><p>ML-based crop recommendation using soil and weather inputs, with a Streamlit interface and Random Forest model.</p>
+      <div class="chips"><span class="chip">Python</span><span class="chip">Random Forest</span><span class="chip">Streamlit</span></div>
+      <div class="project-actions"><button class="btn primary demo-btn" data-demo="crop">▶ Demo</button><a class="btn" href="https://github.com/Shanzay-Imran/Smart-Crop-recommendation-System" target="_blank" rel="noopener">⌘ Code</a></div>
+    </article>
+    <article class="card project" data-tags="java">
+      <div class="project-top"><span class="project-icon">📅</span><span class="project-num">02</span></div>
+      <h3>Smart Time Table Scheduler</h3><p>Java Swing desktop scheduler using JDBC and MySQL, with rooms, teachers, availability and schedule editing.</p>
+      <div class="chips"><span class="chip">Java</span><span class="chip">Swing</span><span class="chip">MySQL</span></div>
+      <div class="project-actions"><button class="btn primary demo-btn" data-demo="timetable">▶ Demo</button><a class="btn" href="https://github.com/Shanzay-Imran/Smart-Time-Table-Scheduler" target="_blank" rel="noopener">⌘ Code</a></div>
+    </article>
+    <article class="card project" data-tags="ai python">
+      <div class="project-top"><span class="project-icon">🛡️</span><span class="project-num">03</span></div>
+      <h3>Credit Card Fraud Detection</h3><p>Console/ML project exploring preprocessing, feature engineering and predictive transaction analysis.</p>
+      <div class="chips"><span class="chip">Python</span><span class="chip">Scikit-learn</span><span class="chip">Pandas</span></div>
+      <div class="project-actions"><button class="btn primary demo-btn" data-demo="fraud">▶ Demo</button><a class="btn" href="https://github.com/Shanzay-Imran" target="_blank" rel="noopener">⌘ Code</a></div>
+    </article>
+    <article class="card project" data-tags="cpp">
+      <div class="project-top"><span class="project-icon">🔐</span><span class="project-num">04</span></div>
+      <h3>Caesar & Vigenère Cipher</h3><p>C++ console-based cryptography project implementing classic substitution and polyalphabetic ciphers.</p>
+      <div class="chips"><span class="chip">C++</span><span class="chip">Cryptography</span></div>
+      <div class="project-actions"><button class="btn primary demo-btn" data-demo="cipher">▶ Demo</button><a class="btn" href="https://github.com/Shanzay-Imran" target="_blank" rel="noopener">⌘ Code</a></div>
+    </article>
+    <article class="card project" data-tags="cpp">
+      <div class="project-top"><span class="project-icon">🫧</span><span class="project-num">05</span></div>
+      <h3>Automatic Washing Machine</h3><p>Console/programming simulation with multiple washing cycles and sequential machine states.</p>
+      <div class="chips"><span class="chip">C++</span><span class="chip">Simulation</span></div>
+      <div class="project-actions"><button class="btn primary demo-btn" data-demo="washing">▶ Demo</button><a class="btn" href="https://github.com/Shanzay-Imran" target="_blank" rel="noopener">⌘ Code</a></div>
+    </article>
+    <article class="card project" data-tags="cpp">
+      <div class="project-top"><span class="project-icon">📁</span><span class="project-num">06</span></div>
+      <h3>File Encryption & Decryption</h3><p>C++ console-based project demonstrating text/file encryption and decryption concepts with a key.</p>
+      <div class="chips"><span class="chip">C++</span><span class="chip">Encryption</span></div>
+      <div class="project-actions"><button class="btn primary demo-btn" data-demo="encrypt">▶ Demo</button><a class="btn" href="https://github.com/Shanzay-Imran" target="_blank" rel="noopener">⌘ Code</a></div>
+    </article>
+  </div>
+</div>
+</section>
+
+<section id="education">
+<div class="container">
+  <div class="section-head"><div class="kicker">04 · Education</div><h2>Academic foundation.</h2></div>
+  <div class="card edu"><div class="edu-year">2024 — 2028</div><div><h3>BS Artificial Intelligence</h3><p>University of Engineering and Technology (UET), Peshawar</p><p class="lead">Current focus includes machine learning, deep learning, databases, software engineering, information security, computer networks and programming.</p></div></div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+  <div class="section-head"><div class="kicker">05 · Contact</div><h2>Let's connect.</h2><p class="lead">Open to AI/ML learning opportunities, internships, freelance work and practical collaborations.</p></div>
+  <div class="contact">
+    <a class="card contact-card" href="mailto:shanzayimran95@gmail.com"><span class="contact-icon">✉</span><div><small>Email</small><strong>shanzayimran95@gmail.com</strong></div></a>
+    <a class="card contact-card" href="https://www.linkedin.com/in/shanzay-imran-6bab74346/" target="_blank" rel="noopener"><span class="contact-icon">in</span><div><small>LinkedIn</small><strong>Shanzay Imran</strong></div></a>
+    <a class="card contact-card" href="https://github.com/Shanzay-Imran" target="_blank" rel="noopener"><span class="contact-icon">⌘</span><div><small>GitHub</small><strong>Shanzay-Imran</strong></div></a>
+    <a class="card contact-card" href="tel:03355953887"><span class="contact-icon">☎</span><div><small>Phone</small><strong>03355953887</strong></div></a>
+  </div>
+</div>
+</section>
+</main>
+<footer><div class="container">© 2026 Shanzay Imran · Built with HTML, CSS & JavaScript.</div></footer>
+
+<div class="modal" id="modal">
+<div class="modal-box">
+<button class="close" id="close">×</button><div id="modalContent"></div>
+</div></div>
+
+<script>
+const menu=document.getElementById("menu"),nav=document.getElementById("navlinks");
+menu.onclick=()=>nav.classList.toggle("open");
+document.querySelectorAll(".navlinks a").forEach(a=>a.onclick=()=>nav.classList.remove("open"));
+
+const projects=[...document.querySelectorAll(".project")];
+document.querySelectorAll(".filter").forEach(btn=>{
+  btn.onclick=()=>{
+    document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));btn.classList.add("active");
+    const f=btn.dataset.filter;
+    projects.forEach(p=>p.style.display=(f==="all"||p.dataset.tags.includes(f))?"block":"none");
+  };
+});
+
+const modal=document.getElementById("modal"),content=document.getElementById("modalContent");
+const close=()=>modal.classList.remove("show");
+document.getElementById("close").onclick=close;
+modal.onclick=e=>{if(e.target===modal)close()};
+document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
+
+function shell(title,sub,body){return `<div class="kicker">Interactive browser demonstration</div><h3>${title}</h3><p class="modal-sub">${sub}</p>${body}<p class="note">This is a portfolio browser recreation and does not execute the original trained model, Java application, C++ program or MySQL database.</p>`}
+
+function caesar(text,shift){
+  return [...text].map(c=>{
+    const n=c.charCodeAt(0);
+    if(n>=65&&n<=90)return String.fromCharCode((n-65+shift+26)%26+65);
+    if(n>=97&&n<=122)return String.fromCharCode((n-97+shift+26)%26+97);
+    return c;
+  }).join("");
+}
+function vig(text,key){
+  key=key.toUpperCase().replace(/[^A-Z]/g,"");let i=0;
+  return [...text].map(c=>{
+    if(!/[A-Za-z]/.test(c))return c;
+    const s=key.charCodeAt(i++%key.length)-65;
+    return caesar(c,s);
+  }).join("");
+}
+
+document.querySelectorAll(".demo-btn").forEach(b=>b.onclick=()=>{
+ const d=b.dataset.demo;
+ if(d==="crop") content.innerHTML=shell("Smart Crop Recommendation","Enter sample soil and weather readings to explore the interface.",`
+ <div class="demo"><div class="demo-title">Crop prediction form</div><div class="form-grid">
+ ${["Nitrogen (N)","Phosphorus (P)","Potassium (K)","Temperature °C","Humidity %","pH","Rainfall mm"].map((x,i)=>`<div class="field"><label>${x}</label><input id="c${i}" type="number" value="${[90,42,43,20.8,82,6.5,202][i]}" step="any"></div>`).join("")}
+ <div class="full"><button class="btn primary" id="predict">Predict Crop</button></div></div><div class="result" id="cres">Ready for prediction.</div></div>`);
+ if(d==="timetable") content.innerHTML=shell("Smart Time Table Scheduler","A visual recreation of the desktop workflow.",`
+ <div class="demo"><div class="demo-title">Schedule dashboard</div><table class="schedule"><tr><th>Day</th><th>Time</th><th>Course</th><th>Room</th></tr><tr><td>Monday</td><td>10:00</td><td>AI</td><td>Room 101</td></tr><tr><td>Tuesday</td><td>12:00</td><td>Database</td><td>Room 202</td></tr><tr><td>Wednesday</td><td>09:00</td><td>OOP</td><td>Room 305</td></tr></table><br><button class="btn" id="editSchedule">Edit Schedule</button><div class="result" id="tres">View Rooms · View Teachers · View Schedule</div></div>`);
+ if(d==="fraud") content.innerHTML=shell("Credit Card Fraud Detection","A simplified transaction-analysis interface.",`
+ <div class="demo"><div class="demo-title">Transaction analysis</div><div class="form-grid">
+ <div class="field"><label>Transaction amount</label><input id="amount" type="number" value="125"></div>
+ <div class="field"><label>Transaction hour</label><input id="hour" type="number" min="0" max="23" value="14"></div>
+ <div class="field"><label>International transaction</label><select id="intl"><option value="0">No</option><option value="1">Yes</option></select></div>
+ <div class="field"><label>Velocity score</label><input id="velocity" type="number" value="2"></div>
+ <div class="full"><button class="btn primary" id="analyze">Analyze Transaction</button></div></div><div class="result" id="fres">Waiting for transaction.</div></div>`);
+ if(d==="cipher") content.innerHTML=shell("Caesar & Vigenère Cipher","Try classic encryption in a terminal-style browser demo.",`
+ <div class="demo"><div class="demo-title">Cipher terminal</div><div class="form-grid">
+ <div class="field"><label>Method</label><select id="method"><option>Caesar</option><option>Vigenère</option></select></div>
+ <div class="field"><label>Key / shift</label><input id="key" value="3"></div>
+ <div class="field full"><label>Text</label><textarea id="ctext">Hello World</textarea></div>
+ <div class="full"><button class="btn primary" id="encryptText">Encrypt</button></div></div><div class="terminal" id="tout">user@cipher:~$ ready</div></div>`);
+ if(d==="washing") content.innerHTML=shell("Automatic Washing Machine","Choose a cycle and simulate the machine states.",`
+ <div class="demo"><div class="demo-title">Machine terminal</div><div class="form-grid"><div class="field"><label>Program</label><select id="wash"><option>Quick Wash</option><option>Normal Wash</option><option>Heavy Wash</option></select></div><div class="full"><button class="btn primary" id="startWash">Start Machine</button></div></div><div class="terminal" id="wout">machine@home:~$ ready</div></div>`);
+ if(d==="encrypt") content.innerHTML=shell("File Encryption & Decryption","A text-based browser demonstration of the concept.",`
+ <div class="demo"><div class="demo-title">Encryption terminal</div><div class="form-grid"><div class="field full"><label>Text</label><textarea id="etext">My portfolio file</textarea></div><div class="field"><label>Key</label><input id="ekey" value="AI2026"></div><div class="field"><label>Action</label><select id="eaction"><option>Encrypt</option><option>Decrypt</option></select></div><div class="full"><button class="btn primary" id="runEnc">Run</button></div></div><div class="terminal" id="eout">file@secure:~$ ready</div></div>`);
+ modal.classList.add("show");
+ if(d==="crop")document.getElementById("predict").onclick=()=>document.getElementById("cres").textContent="Browser demo result: Recommended crop → Rice\nThe original project uses its trained Random Forest model.";
+ if(d==="timetable")document.getElementById("editSchedule").onclick=()=>document.getElementById("tres").textContent="Edit mode opened: add / update / delete workflow demonstrated in the original Java application.";
+ if(d==="fraud")document.getElementById("analyze").onclick=()=>{
+   const amount=+document.getElementById("amount").value,h=+document.getElementById("hour").value,intl=+document.getElementById("intl").value,v=+document.getElementById("velocity").value;
+   const flagged=intl&&amount>500 || v>8 || (h<5&&amount>300);
+   document.getElementById("fres").textContent=flagged?"FLAGGED FOR REVIEW":"LIKELY LEGITIMATE";
+ };
+ if(d==="cipher")document.getElementById("encryptText").onclick=()=>{
+   const t=document.getElementById("ctext").value,m=document.getElementById("method").value,k=document.getElementById("key").value;
+   const r=m==="Caesar"?caesar(t,parseInt(k)||0):vig(t,k);
+   document.getElementById("tout").innerHTML=`<span class="term-line">user@cipher:~$ encrypt</span>\nInput: ${t}\nOutput: ${r}`;
+ };
+ if(d==="washing")document.getElementById("startWash").onclick=()=>{
+   const p=document.getElementById("wash").value;document.getElementById("wout").innerHTML=`<span class="term-line">machine@home:~$ start --program "${p}"</span>\n[1/4] Filling water...\n[2/4] Washing...\n[3/4] Rinsing...\n[4/4] Spinning...\n<span class="term-ok">Cycle complete.</span>`;
+ };
+ if(d==="encrypt")document.getElementById("runEnc").onclick=()=>{
+   const t=document.getElementById("etext").value,k=document.getElementById("ekey").value,a=document.getElementById("eaction").value;
+   let out=[...t].map((c,i)=>String.fromCharCode(c.charCodeAt(0)^(k.charCodeAt(i%k.length)))).join("");
+   if(a==="Encrypt")document.getElementById("eout").textContent="file@secure:~$ encrypt\nOutput (encoded): "+btoa(unescape(encodeURIComponent(out)));
+   else document.getElementById("eout").textContent="file@secure:~$ decrypt\nThis demo expects a value produced by its Encrypt action in the same session.";
+ };
+});
+</script>
+</body>
+</html>
